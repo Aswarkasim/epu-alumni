@@ -48,13 +48,12 @@
 
         </form>
 
-
-
       </div>
       <!-- /.box-body -->
     </div>
   </div>
 </div>
+
 
 <script src="<?= base_url('assets/admin/') ?>bower_components/ckeditor/ckeditor.js"></script>
 <script>

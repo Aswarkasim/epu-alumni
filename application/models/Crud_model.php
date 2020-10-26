@@ -4,10 +4,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Crud_model extends CI_Model
 {
 
-    public function listing($table, $order = null)
+    public function listing($table, $limit = null)
     {
         $query = $this->db->select('*')
             ->from($table)
+            ->limit($limit)
             ->get();
         return $query->result();
     }

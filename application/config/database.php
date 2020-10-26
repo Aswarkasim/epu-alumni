@@ -25,3 +25,11 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+/*Cpanel
+
+DB
+username : u8939991_alumni_jpte
+pass : }Js*$ktRJQ+9
+
+*/

@@ -8,7 +8,7 @@
           <?= validation_errors('<div class="text text-danger">', '</div>') ?>
 
 
-
+          <!-- 
           <div class="form-group">
             <div class="row">
               <div class="col-md-4">
@@ -16,6 +16,65 @@
               </div>
               <div class="col-md-8">
                 <input class="form-control" name="username" placeholder="Username" type="text" value="<?= set_value('username') ?>">
+              </div>
+            </div>
+          </div> -->
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="pull-right"><strong>NIM</strong></label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" name="id_alumni" placeholder="NIM" type="text" value="<?= set_value('nim') ?>">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="pull-right"><strong>Nama Lengkap</strong></label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" name="namalengkap" placeholder="Nama Lengkap" type="text" value="<?= set_value('namalengkap') ?>">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="pull-right"><strong>Email</strong></label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" name="email" placeholder="Email" type="text" value="<?= set_value('email') ?>">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="pull-right"><strong>Angkatan</strong></label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" name="angkatan" placeholder="Angkatan" type="text" value="<?= set_value('angkatan') ?>">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <label for="" class="pull-right"><strong>Gender</strong></label>
+              </div>
+              <div class="col-md-8">
+                <select name="gender" required class="form-control" id="">
+                  <option value="">--Gender--</option>
+                  <option value="Laki-laki">Laki-laki</option>
+                  <option value="Perempuan">Perempuan</option>
+                </select>
               </div>
             </div>
           </div>

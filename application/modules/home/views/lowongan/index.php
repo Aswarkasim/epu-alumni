@@ -22,8 +22,7 @@
             <h4><strong><?= $row->nama_lowongan; ?></strong></h4>
             <p class="card-text"><?= character_limiter($row->deskripsi, '50') ?></p>
             <div class="d-flex justify-content-between align-items-center">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Selengkapnya</button>
-              <small class="text-muted">9 mins</small>
+              <a href="<?= base_url('home/lowongan/detail/' . $row->slug); ?>" class="btn btn-primary">Selengkapnya</a>
             </div>
           </div>
         </div>

@@ -7,7 +7,11 @@ class Saran extends CI_Controller
 
   public function index()
   {
+    $lowongan = $this->Crud_model->listing('tbl_lowongan', '3');
+    $berita = $this->Crud_model->listing('tbl_berita', '2');
     $data = [
+      'lowongan'  => $lowongan,
+      'berita'  => $berita,
       'content'  => 'home/saran/index'
     ];
     $this->load->view('home/layout/wrapper', $data, FALSE);

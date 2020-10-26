@@ -14,14 +14,28 @@
       </div>
     </div>
 
-    <form action="<?= base_url('user/pribadi/edit') ?>" method="POST">
+    <form action="<?= base_url('user/kuliah/edit') ?>" method="POST">
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
-            <label for="" class="pull-right">Nama</label>
+            <label for="" class="pull-right">NIM</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" value="<?= $alumni->namalengkap; ?>" name="namalengkap" id="">
+            <input type="text" class="form-control" disabled value="<?= $alumni->id_alumni; ?>" name="id_alumni" id="">
+            <small>* Hubungi admin untuk mengubah NIM</small>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
+            <label for="" class="pull-right">Program Studi</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" name="program_studi" value="<?= $alumni->program_studi; ?>" id="">
           </div>
         </div>
       </div>
@@ -29,18 +43,10 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
-            <label for="" class="pull-right">Gender</label>
+            <label for="" class="pull-right">Judul Skripsi</label>
           </div>
           <div class="col-md-6">
-            <select name="gender" class="form-control" id="">
-              <option value="">--Gender--</option>
-              <option value="Laki-laki" <?php if ($alumni->gender == "Laki-laki") {
-                                          echo 'selected';
-                                        } ?>>Laki-laki</option>
-              <option value="Perempuan" <?php if ($alumni->gender == "Perempuan") {
-                                          echo 'selected';
-                                        } ?>>Perempuan</option>
-            </select>
+            <input type="text" class="form-control" name="judul_skripsi" value="<?= $alumni->judul_skripsi; ?>" id="">
           </div>
         </div>
       </div>
@@ -48,10 +54,10 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
-            <label for="" class="pull-right">Tempat Lahir</label>
+            <label for="" class="pull-right">Tahun Lulus</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" name="tempat_lahir" value="<?= $alumni->tempat_lahir; ?>" id="">
+            <input type="text" class="form-control" value="<?= $alumni->tahun_lulus; ?>" name="tahun_lulus" id="">
           </div>
         </div>
       </div>
@@ -59,10 +65,10 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
-            <label for="" class="pull-right">Tanggal Lahir</label>
+            <label for="" class="pull-right">Tahun Wisuda</label>
           </div>
           <div class="col-md-6">
-            <input type="date" class="form-control" name="tanggal_lahir" value="<?= $alumni->tanggal_lahir; ?>" id="">
+            <input type="text" class="form-control" value="<?= $alumni->tahun_wisuda; ?>" name="tahun_wisuda" id="">
           </div>
         </div>
       </div>
@@ -70,10 +76,10 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
-            <label for="" class="pull-right">Handphone</label>
+            <label for="" class="pull-right">IPK</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" value="<?= $alumni->nohp; ?>" name="nohp" id="">
+            <input type="text" class="form-control" name="ipk" value="<?= $alumni->ipk; ?>" id="">
           </div>
         </div>
       </div>
@@ -81,10 +87,10 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
-            <label for="" class="pull-right">Email</label>
+            <label for="" class="pull-right">No. Ijazah</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" value="<?= $alumni->email; ?>" name="email" id="">
+            <input type="text" class="form-control" name="no_ijazah" value="<?= $alumni->no_ijazah; ?>" id="">
           </div>
         </div>
       </div>
@@ -92,21 +98,10 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
-            <label for="" class="pull-right">Pekerjaan</label>
+            <label for="" class="pull-right">Kerelevansian</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" name="pekerjaan" value="<?= $alumni->pekerjaan; ?>" id="">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-2">
-            <label for="" class="pull-right">Penghasilan</label>
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control" name="penghasilan" value="<?= $alumni->penghasilan; ?>" id="">
+            <input type="text" class="form-control" name="kerelevansian" value="<?= $alumni->kerelevansian; ?>" id="">
           </div>
         </div>
       </div>
@@ -117,7 +112,7 @@
           <div class="col-md-2">
           </div>
           <div class="col-md-6">
-            <a href="<?= base_url('user/pribadi'); ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
+            <a href="<?= base_url('user/kuliah'); ?>" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
             <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
         </div>

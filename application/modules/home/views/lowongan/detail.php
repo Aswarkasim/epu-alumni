@@ -6,29 +6,29 @@
     <div class="col-lg-8">
 
       <!-- Title -->
-      <h2 class="mt-4">Berikan saran dan masukan</h2>
+      <h2 class="mt-4"><?= $lowongan->nama_lowongan; ?></h2>
+
+      <hr>
+      <!-- Preview Image -->
+      <img class="img-fluid rounded" src="<?= base_url($lowongan->gambar); ?>" alt="">
+
+      <hr>
+      <h4><strong><?= $lowongan->perusahaan; ?></strong></h4>
+      <p><?= $lowongan->deskripsi; ?></p>
 
       <hr>
 
-      <form action="<?= base_url('home/saran/kirim'); ?>" method="POST">
-        <div class="form-group">
-          <div class="label"><strong> Saran</strong></div>
-          <textarea name="isi_saran" class="form-control" id="editor" cols="30" rows="10"></textarea>
-        </div>
-
-        <div class="form-group pull-right">
-          <button type="submit" class="btn btn-primary">Kirim <i class="fa fa-telegram"></i></button>
-        </div>
-      </form>
 
     </div>
+
     <!-- Sidebar Widgets Column -->
     <div class="col-md-4">
+
       <!-- Search Widget -->
       <div class="card my-4">
         <h5 class="card-header">Lowongan</h5>
         <div class="card-body">
-          <?php foreach ($lowongan as $row) { ?>
+          <?php foreach ($lowonganList as $row) { ?>
             <div class="input-group">
               <a href="<?= base_url('home/lowongan/detail/' . $row->slug); ?>">
                 <h5><strong><?= $row->nama_lowongan; ?></strong></h5>
@@ -55,15 +55,11 @@
         </div>
       </div>
 
+
+
     </div>
 
   </div>
   <!-- /.row -->
 
 </div>
-
-
-<script src="<?= base_url('assets/') ?>js/ckeditor/ckeditor.js"></script>
-<script>
-  CKEDITOR.replace("editor");
-</script>

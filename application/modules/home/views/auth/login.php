@@ -15,8 +15,8 @@
         ?>
 
         <div class="form-group">
-          <label for="inputEmail" class="sr-only">Username</label>
-          <input name="username" class="form-control" placeholder="Username" type="text">
+          <label for="inputEmail" class="sr-only">NIM</label>
+          <input name="id_alumni" class="form-control" placeholder="NIM" type="text">
         </div>
         <div class="form-group">
           <label for="inputPassword" class="sr-only">Password</label>

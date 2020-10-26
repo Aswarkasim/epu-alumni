@@ -1,6 +1,6 @@
 <?php $this->load->view('user/nav'); ?>
 
-<div class="jumbotron">
+<div class="">
 
   <div class="container">
     <style>
@@ -62,7 +62,7 @@
 
       </table>
 
-      <a href="" class="btn btn-md btn-primary"><i class="fa fa-edit"></i> Edit</a>
+      <a href="<?= base_url('user/kuliah/edit'); ?>" class="btn btn-md btn-primary"><i class="fa fa-edit"></i> Edit</a>
     </strong>
 
   </div>

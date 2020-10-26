@@ -26,12 +26,14 @@
       <div class="card my-4">
         <h5 class="card-header">Search</h5>
         <div class="card-body">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
-          </div>
+          <form action="<?= base_url('home/berita/cari'); ?>" method="POST">
+            <div class="input-group">
+              <input type="text" class="form-control" name="key" placeholder="Cari Berita..">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Cari</button>
+              </span>
+            </div>
+          </form>
         </div>
       </div>
 
@@ -44,7 +46,7 @@
               <ul class="list-unstyled mb-0">
                 <?php foreach ($kategori as $row) { ?>
                   <li>
-                    <a href="<?= base_url('admin/berita/kategori/' . $row->id_kategori . $row->nama_kategori); ?>"><?= $row->nama_kategori; ?></a>
+                    <a href="<?= base_url('home/berita/kategori/' . $row->id_kategori . $row->nama_kategori); ?>"><?= $row->nama_kategori; ?></a>
                   </li>
                 <?php } ?>
               </ul>
