@@ -1,62 +1,84 @@
-<div class="row">
-  <div class="col-md-8">
-    <div class="box">
-      <div class="box-header">
-        <h3 class="box-title"><i class="fa fa-building"></i> <?= $title ?></h3>
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body">
+ <div class="box">
+   <div class="row">
 
-        <?php
-        echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i> ', '</div>');
-        ?>
+     <div class="col-md-8">
 
-        <form action="<?= base_url('admin/profil') ?>" method="post">
+       <div class="box-header">
+         <h3 class="box-title"><i class="fa fa-building"></i> <?= $title ?></h3>
+       </div>
+       <!-- /.box-header -->
+       <div class="box-body">
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-2">
-                <label for="" class="pull-right">Nama Instansi</label>
-              </div>
-              <div class="col-md-9">
-                <input type="text" value="<?= $profil->nama_instansi ?>" placeholder="Nama Instansi" name="nama_instansi" class="form-control">
-              </div>
-            </div>
-          </div>
+         <?php
+          echo validation_errors('<div class="alert alert-warning"><i class="fa fa-warning"></i> ', '</div>');
+          ?>
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-2">
-                <label for="" class="pull-right">Sejarah</label>
-              </div>
-              <div class="col-md-9">
-                <textarea name="sejarah" id="editor1" class="form-control"><?= $profil->sejarah ?></textarea>
-              </div>
-            </div>
-          </div>
+         <?= form_open_multipart('admin/profil/edit') ?>
+         <form action="" method="post">
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-2">
+           <div class="form-group">
+             <div class="row">
+               <div class="col-md-2">
+                 <label for="" class="pull-right">Nama Jurusan</label>
+               </div>
+               <div class="col-md-9">
+                 <input type="text" value="<?= $profil->nama_instansi ?>" placeholder="Nama Jurusan" name="nama_instansi" class="form-control">
+               </div>
+             </div>
+           </div>
 
-              </div>
-              <div class="col-md-8">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
-              </div>
-            </div>
-          </div>
+           <div class="form-group">
+             <div class="row">
+               <div class="col-md-2">
+                 <label for="" class="pull-right">Gambar</label>
+               </div>
+               <div class="col-md-9">
+                 <input type="file" class="form-control" name="gambar">
+               </div>
+             </div>
+           </div>
 
-        </form>
+           <div class="form-group">
+             <div class="row">
+               <div class="col-md-2">
+                 <label for="" class="pull-right">Tentang</label>
+               </div>
+               <div class="col-md-9">
+                 <textarea name="tentang" id="editor1" class="form-control"><?= $profil->tentang ?></textarea>
+               </div>
+             </div>
+           </div>
+
+           <div class="form-group">
+             <div class="row">
+               <div class="col-md-2">
+
+               </div>
+               <div class="col-md-8">
+                 <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+               </div>
+             </div>
+           </div>
+
+         </form>
+         <?= form_close() ?>
 
 
 
-      </div>
-      <!-- /.box-body -->
-    </div>
-  </div>
-</div>
+       </div>
+       <!-- /.box-body -->
+     </div>
 
-<script src="<?= base_url('assets/admin/') ?>bower_components/ckeditor/ckeditor.js"></script>
-<script>
-  CKEDITOR.replace('editor1')
-</script>
+     <div class="col-md-3">
+       <div class="form-group">
+         <label for="">Gambar</label>
+         <img src="<?= base_url($profil->gambar); ?>" width="100%" alt="">
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <script src="<?= base_url('assets/admin/') ?>bower_components/ckeditor/ckeditor.js"></script>
+ <script>
+   CKEDITOR.replace('editor1')
+ </script>

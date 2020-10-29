@@ -7,11 +7,9 @@ class Saran extends CI_Controller
 
   public function index()
   {
-    $lowongan = $this->Crud_model->listing('tbl_lowongan', '3');
-    $berita = $this->Crud_model->listing('tbl_berita', '2');
+    $profil = $this->Crud_model->listingOne('tbl_profil', 'id_profil', '1');
     $data = [
-      'lowongan'  => $lowongan,
-      'berita'  => $berita,
+      'profil'  => $profil,
       'content'  => 'home/saran/index'
     ];
     $this->load->view('home/layout/wrapper', $data, FALSE);
@@ -30,10 +28,10 @@ class Saran extends CI_Controller
     $data = [
       'id_saran'   => random_string(),
       'id_alumni'  => $this->session->userdata('id_alumni'),
-      'isi_saran'  => $this->input->post('isi_saran'),
+      'isi_saran'  => $this->input->post('isi_saran')
     ];
     $this->Crud_model->add('tbl_saran', $data);
-    $this->session->set_flashdata('msg', 'Terima kasi telah mengirimkan saran');
+    $this->session->set_flashdata('msg', 'Terima kasih telah mengirimkan saran');
     redirect('home/saran', 'refresh');
   }
 }
