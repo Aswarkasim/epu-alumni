@@ -41,6 +41,12 @@
                                     <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
+                                    <?php if ($row->is_active == '1') { ?>
+                                        <a href="<?= base_url($is_active . $row->id_alumni . '/0')  ?>" class="btn btn-danger btn-xs alert-active"><i class="fa fa-power-off"></i> Non-aktifkan</a>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url($is_active . $row->id_alumni) . '/1'  ?>" class="btn btn-success btn-xs alert-active"><i class="fa fa-power-off"></i> Aktifkan</a>
+
+                                    <?php } ?>
                                     <li><a href="<?= base_url($edit . $row->id_alumni)  ?>"><i class="fa fa-edit"></i> Edit</a></li>
                                     <li><a class="tombol-hapus" href="<?= base_url($delete . $row->id_alumni)  ?>"><i class="fa fa-trash"></i> Hapus</a></li>
                                 </ul>

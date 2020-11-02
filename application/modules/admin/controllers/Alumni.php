@@ -19,6 +19,7 @@ class Alumni extends CI_Controller
             'add'      => 'admin/alumni/add',
             'edit'      => 'admin/alumni/edit/',
             'delete'      => 'admin/alumni/delete/',
+            'is_active'      => 'admin/alumni/is_active/',
             'alumni'      => $alumni,
             'content'   => 'admin/alumni/index'
         ];
@@ -110,16 +111,13 @@ class Alumni extends CI_Controller
         redirect('admin/alumni');
     }
 
-    public function role()
+    function is_active($id_alumni, $is)
     {
-        $role = $this->Crud_model->listing('tbl_alumni_role');
         $data = [
-            'add'       => 'roleAdd',
-            'edit'      => 'roleEdit/',
-            'delete'    => 'roleDelete/',
-            'role'      => $role,
-            'content'   => 'admin/role/index'
+            'is_active' => $is
         ];
-        $this->load->view('admin/layout/wrapper', $data, FALSE);
+        $this->Crud_model->edit('tbl_alumni', 'id_alumni', $id_alumni, $data);
+        $this->session->set_flashdata('msg', 'Akun alumni telah diaktifkan');
+        redirect('admin/alumni', 'refresh');
     }
 }
