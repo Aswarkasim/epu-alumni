@@ -7,7 +7,10 @@ class Pribadi extends CI_Controller
 
   public function index()
   {
+    $id_alumni = $this->session->userdata('id_alumni');
+    $alumni = $this->Crud_model->listingOne('tbl_alumni', 'id_alumni', $id_alumni);
     $data = [
+      'alumni'   => $alumni,
       'content'  => 'user/pribadi/index'
     ];
     $this->load->view('home/layout/wrapper', $data, FALSE);

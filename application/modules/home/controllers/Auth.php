@@ -22,7 +22,7 @@ class Auth extends CI_Controller
     }
     $valid = $this->form_validation;
 
-    $valid->set_rules('id_alumni', 'NIM', 'required', array('required' => '%s harus diisi'));
+    $valid->set_rules('username_alumni', 'Username', 'required', array('required' => '%s harus diisi'));
     $valid->set_rules('password', 'Password', 'required|min_length[6]', array('required' => 'Password harus diisi', 'min_length' => 'Password minimal 6 karakter'));
 
     if ($valid->run() === FALSE) {
@@ -32,15 +32,16 @@ class Auth extends CI_Controller
       $this->load->view('home/layout/wrapper', $data);
     } else {
       $i          = $this->input;
-      $id_alumni      = $i->post('id_alumni');
+      $username      = $i->post('username_alumni');
       $password   = $i->post('password');
-      $cek_login  = $this->HM->loginNim($id_alumni, $password);
+      $cek_login  = $this->HM->loginUsername($username, $password);
       //print_r($email); die;
 
       if (!empty($cek_login) == 1) {
         if ($cek_login->is_active == 1) {
           $s = $this->session;
           $s->set_userdata('id_alumni', $cek_login->id_alumni);
+          $s->set_userdata('username_alumni', $cek_login->username_alumni);
           $s->set_userdata('namalengkap', $cek_login->namalengkap);
           redirect('user/pribadi', 'refresh');
         } else {
@@ -65,10 +66,10 @@ class Auth extends CI_Controller
     $this->load->helper('string');
 
     $required = '%s tidak boleh kosong';
-    $is_username = '%s ' . post('id_alumni') . ' telah ada, silakan masukkan %s yang lain';
+    $is_username = '%s ' . post('username_alumni') . ' telah ada, silakan masukkan %s yang lain';
     $is_email = '%s ' . post('email') . ' telah ada, silakan masukkan %s yang lain';
     $valid = $this->form_validation;
-    $valid->set_rules('id_alumni', 'NIM', 'required|is_unique[tbl_alumni.id_alumni]', array('required' => $required, 'is_unique' => '%s telah ada. silakan masukkan NIM yang lain'));
+    $valid->set_rules('username_alumni', 'Username', 'required|is_unique[tbl_alumni.username_alumni]', array('required' => $required, 'is_unique' => '%s telah ada. silakan masukkan NIM yang lain'));
     $valid->set_rules('namalengkap', 'Nama Lengkap', 'required', array('required' => $required));
     $valid->set_rules('email', 'email', 'required|is_unique[tbl_alumni.email]|valid_email', array('required' => $required, 'is_unique' => $is_email, 'valid_email' => '%s yang anda  masukkan tidak valid'));
     $valid->set_rules('angkatan', 'angkatan', 'required|is_unique[tbl_alumni.email]', array('required' => $required, 'is_unique' => $is_email, 'valid_email' => '%s yang anda  masukkan tidak valid'));
@@ -84,12 +85,16 @@ class Auth extends CI_Controller
     } else {
       $i = $this->input;
       $data = [
-        'id_alumni'        => $i->post('id_alumni'),
+        'id_alumni'        => random_string(),
+        'username_alumni'       => $i->post('username_alumni'),
         'namalengkap'       => $i->post('namalengkap'),
         'email'       => $i->post('email'),
         'angkatan'       => $i->post('angkatan'),
+        'tahun_lulus'       => $i->post('tahun_lulus'),
+        'pekerjaan'       => $i->post('pekerjaan'),
+        'masa_tunggu'       => $i->post('masa_tunggu'),
         'gender'       => $i->post('gender'),
-        'is_active'       => 0,
+        'is_active'       => 1,
         'password'       => sha1($i->post('password')),
 
       ];
@@ -103,6 +108,7 @@ class Auth extends CI_Controller
   {
     $s = $this->session;
     $s->unset_userdata('id_alumni');
+    $s->unset_userdata('username_alumni');
     $s->unset_userdata('namalengkap');
     redirect(base_url('home/auth'), 'refresh');
   }

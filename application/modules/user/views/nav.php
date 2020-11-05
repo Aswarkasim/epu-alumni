@@ -55,6 +55,12 @@ $alumni = $this->Crud_model->listingOne('tbl_alumni', 'id_alumni', $id_alumni);
 
           <ul class="nav nav-tabs">
 
+            <li class="nav-link <?php if ($this->uri->segment('2') == 'lowongan') {
+                                  echo 'active';
+                                } ?>">
+              <a href="<?= base_url('user/lowongan'); ?>" role="tab" class="control-item"><strong> Lowongan</strong></a>
+            </li>
+
             <li class="nav-link <?php if ($this->uri->segment('2') == 'kesan') {
                                   echo 'active';
                                 } ?>">

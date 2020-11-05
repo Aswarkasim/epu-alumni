@@ -13,51 +13,51 @@
       <table>
         <tr>
           <td width="150px" align="left">NIM</td>
-          <td>: 162319313</td>
+          <td>: <?= $alumni->nim; ?></td>
         </tr>
 
         <tr>
           <td align="left">Angkatan</td>
-          <td>: 2016</td>
+          <td>: <?= $alumni->angkatan ?></td>
         </tr>
 
         <tr>
           <td align="left">Program Studi</td>
-          <td>: Pendidikan Teknik Elektro</td>
+          <td>: <?= $alumni->program_studi ?></td>
         </tr>
 
         <tr>
           <td align="left">Judul Skripsi</td>
-          <td>: Pengaruh besar daya listrik terhadap besarnya debit air kolam ikan</td>
+          <td>: <?= $alumni->judul_skripsi ?></td>
         </tr>
 
         <tr>
           <td align="left">Tahun Lulus</td>
-          <td>: 2020</td>
+          <td>: <?= $alumni->tahun_lulus ?></td>
         </tr>
 
         <tr>
           <td align="left">Tahun Wisuda</td>
-          <td>: 2020</td>
+          <td>: <?= $alumni->tahun_wisuda ?></td>
         </tr>
 
         <tr>
           <td align="left">IPK</td>
-          <td>: 3.89</td>
+          <td>: <?= $alumni->ipk ?></td>
         </tr>
 
         <tr>
           <td align="left">No. Ijazah</td>
-          <td>: IH
+          <td>: <?= $alumni->no_ijazah ?> </td>
 
         <tr>
           <td align="left">Masa Tunggu</td>
-          <td>: 3.89</td>
+          <td>: <?= $alumni->masa_tunggu ?></td>
         </tr>
 
         <tr>
           <td align="left">Kerelevansian</td>
-          <td>: 3.89</td>
+          <td>: <?= $alumni->kerelevansian ?></td>
         </tr>
 
       </table>

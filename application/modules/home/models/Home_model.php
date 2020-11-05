@@ -8,12 +8,12 @@ class Home_model extends CI_Model
 
 
 
-  public function loginEmail($email, $password)
+  public function loginUsername($username, $password)
   {
     $this->db->select('*')
       ->from('tbl_alumni')
       ->where(array(
-        'email'      => $email,
+        'username_alumni'      => $username,
         'password'   => sha1($password)
       ));
     $query = $this->db->get();

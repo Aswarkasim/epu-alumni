@@ -13,37 +13,37 @@
       <table>
         <tr>
           <td width="150px" align="left">Nama</td>
-          <td>: Ikram Anas</td>
+          <td>: <?= $alumni->namalengkap; ?></td>
         </tr>
 
         <tr>
           <td align="left">Jenis Kelamin</td>
-          <td>: Laki-laki</td>
+          <td>: <?= $alumni->gender; ?></td>
         </tr>
 
         <tr>
           <td align="left">Tempat Lahir</td>
-          <td>: Makassar</td>
+          <td>: <?= $alumni->tempat_lahir; ?></td>
         </tr>
 
         <tr>
           <td align="left">Tanggal Lahir</td>
-          <td>: 8 April 1998</td>
+          <td>: <?= $alumni->tanggal_lahir; ?></td>
         </tr>
 
         <tr>
           <td align="left">Handphone</td>
-          <td>: 08512323232</td>
+          <td>: <?= $alumni->nohp; ?></td>
         </tr>
 
         <tr>
           <td align="left">Pekerjaan</td>
-          <td>: Programmer</td>
+          <td>: <?= $alumni->pekerjaan; ?></td>
         </tr>
 
         <tr>
           <td align="left">Penghasilan</td>
-          <td>: Rp. 8.000.000</td>
+          <td>: Rp. <?= nominal($alumni->penghasilan) ?></td>
         </tr>
 
       </table>
