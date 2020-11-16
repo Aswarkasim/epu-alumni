@@ -28,36 +28,47 @@ class Alumni extends CI_Controller
     }
 
 
-    function add()
+
+
+    public function add()
     {
+        $this->load->helper('string');
 
+        $required = '%s tidak boleh kosong';
+        $is_username = '%s ' . post('username_alumni') . ' telah ada, silakan masukkan %s yang lain';
+        $is_email = '%s ' . post('email') . ' telah ada, silakan masukkan %s yang lain';
         $valid = $this->form_validation;
+        $valid->set_rules('username_alumni', 'Username', 'required|is_unique[tbl_alumni.username_alumni]', array('required' => $required, 'is_unique' => '%s telah ada. silakan masukkan NIM yang lain'));
+        $valid->set_rules('namalengkap', 'Nama Lengkap', 'required', array('required' => $required));
+        $valid->set_rules('password', 'Password', 'required', array('required' => $required, 'is_unique' => $is_email));
+        $valid->set_rules('re_password', 'Konfirmasi Password', 'required|matches[password]', array('required' => $required, 'matches' => '%s password yang anda masukkan tidak sama'));
 
-        $valid->set_rules('nama_alumni', 'Nama Alumni', 'required');
-        $valid->set_rules('email', 'Email', 'required|is_unique[tbl_alumni.email]|valid_email');
-        $valid->set_rules('password', 'Password', 'required');
-        $valid->set_rules('re_password', 'Retype Password', 'required|matches[password]');
 
         if ($valid->run() === FALSE) {
             $data = [
-                'title'     => 'Tambah Alumni',
-                'add'       => 'admin/alumni/add',
-                'back'      => 'admin/alumni',
                 'content'   => 'admin/alumni/add'
             ];
-            $this->load->view('admin/layout/wrapper', $data, FALSE);
+            $this->load->view('layout/wrapper', $data, FALSE);
         } else {
             $i = $this->input;
             $data = [
-                'nama_alumni'     => $i->post('nama_alumni'),
-                'email'         => $i->post('email'),
-                'password'      => sha1($i->post('password')),
-                'role'          => $i->post('role'),
-                'is_active'     => $i->post('is_aktif')
+                'id_alumni'        => random_string(),
+                'username_alumni'  => $i->post('username_alumni'),
+                'namalengkap'      => $i->post('namalengkap'),
+                'email'            => $i->post('email'),
+                'angkatan'         => $i->post('angkatan'),
+                'tahun_lulus'      => $i->post('tahun_lulus'),
+                'pekerjaan'        => $i->post('pekerjaan'),
+                'pekerjaan_pertama'        => $i->post('pekerjaan_pertama'),
+                'masa_tunggu'      => $i->post('masa_tunggu'),
+                'gender'           => $i->post('gender'),
+                'is_active'        => 1,
+                'password'         => sha1($i->post('password')),
+
             ];
             $this->Crud_model->add('tbl_alumni', $data);
             $this->session->set_flashdata('msg', 'ditambah');
-            redirect('admin/alumni/add', 'refresh');
+            redirect('admin/alumni/detail/' . $data['id_alumni'], 'refersh');
         }
     }
 
@@ -65,42 +76,52 @@ class Alumni extends CI_Controller
     {
         $alumni = $this->Crud_model->listingOne('tbl_alumni', 'id_alumni', $id_alumni);
 
-        $valid = $this->form_validation;
+        $this->load->helper('string');
 
-        $valid->set_rules('nama_alumni', 'Nama Alumni', 'required');
-        $valid->set_rules('email', 'Email', 'required|valid_email');
-        $valid->set_rules('password', 'Password', 'matches[re_password]');
-        $valid->set_rules('re_password', 'Retype Password', 'matches[password]');
+        $required = '%s tidak boleh kosong';
+        $is_username = '%s ' . post('username_alumni') . ' telah ada, silakan masukkan %s yang lain';
+        $is_email = '%s ' . post('email') . ' telah ada, silakan masukkan %s yang lain';
+        $valid = $this->form_validation;
+        // $valid->set_rules('username_alumni', 'Username', 'required|is_unique[tbl_alumni.username_alumni]', array('required' => $required, 'is_unique' => '%s telah ada. silakan masukkan NIM yang lain'));
+        $valid->set_rules('namalengkap', 'Nama Lengkap', 'required', array('required' => $required));
+
 
         if ($valid->run() === FALSE) {
             $data = [
-                'title'     => 'Edit ' . $alumni->nama_alumni,
+                'title'     => 'Edit data alumni ' . $alumni->namalengkap,
                 'edit'       => 'admin/alumni/edit/',
-                'back'      => 'admin/alumni',
-                'alumni'      => $alumni,
+                'back'       => 'admin/alumni/',
+                'alumni'    => $alumni,
                 'content'   => 'admin/alumni/edit'
             ];
-            $this->load->view('admin/layout/wrapper', $data, FALSE);
+            $this->load->view('layout/wrapper', $data, FALSE);
         } else {
             $i = $this->input;
-
             $password = "";
             if ($i->post('password') != "") {
                 $password = sha1($i->post('password'));
             } else {
                 $password = $alumni->password;
             }
+
             $data = [
-                'id_alumni'       => $id_alumni,
-                'nama_alumni'     => $i->post('nama_alumni'),
-                'email'         => $i->post('email'),
-                'password'      => $password,
-                'role'          => $i->post('role'),
-                'is_active'     => $i->post('is_aktif')
+                'id_alumni'        => $alumni->id_alumni,
+                'username_alumni'  => $i->post('username_alumni'),
+                'namalengkap'      => $i->post('namalengkap'),
+                'email'            => $i->post('email'),
+                'angkatan'         => $i->post('angkatan'),
+                'tahun_lulus'      => $i->post('tahun_lulus'),
+                'pekerjaan'        => $i->post('pekerjaan'),
+                'pekerjaan_pertama'        => $i->post('pekerjaan_pertama'),
+                'masa_tunggu'      => $i->post('masa_tunggu'),
+                'gender'           => $i->post('gender'),
+                'is_active'        => 1,
+                'password'         => $password,
+
             ];
             $this->Crud_model->edit('tbl_alumni', 'id_alumni', $id_alumni, $data);
-            $this->session->set_flashdata('msg', 'diedit');
-            redirect('admin/alumni/edit/' . $id_alumni, 'refresh');
+            $this->session->set_flashdata('msg', 'ditambah');
+            redirect('admin/alumni/detail/' . $data['id_alumni'], 'refersh');
         }
     }
 

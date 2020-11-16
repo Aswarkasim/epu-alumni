@@ -84,7 +84,7 @@ class Berita extends CI_Controller
           ];
           $this->Crud_model->add('tbl_berita', $data);
           $this->session->set_flashdata('msg', 'Berita ditambahkan');
-          redirect('admin/berita/detail/' . $data['slug']);
+          redirect('admin/berita/detail/' . $data['id_berita']);
         }
       }
     }
