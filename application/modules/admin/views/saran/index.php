@@ -12,12 +12,12 @@ $this->load->helper('string');
       </div>
       <!-- /.box-header -->
       <div class="box-body no-padding">
-
+        <br>
         <div class="row">
           <div class="col-md-8">
-            <a href="<?= base_url('admin/saran'); ?>" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></a>
+            <!-- <a href="<?= base_url('admin/saran'); ?>" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></a> -->
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <form action="<?= base_url('admin/saran/cari'); ?>" method="post">
               <div class="input-group margin">
                 <input type="text" name="where" class="form-control" placeholder="cari">
@@ -26,7 +26,7 @@ $this->load->helper('string');
                 </span>
               </div>
             </form>
-          </div>
+          </div> -->
         </div>
 
         <div class="row">

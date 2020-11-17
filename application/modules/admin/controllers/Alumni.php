@@ -28,6 +28,23 @@ class Alumni extends CI_Controller
     }
 
 
+    public function detail($id_alumni)
+    {
+        $alumni = $this->Crud_model->listingOne('tbl_alumni', 'id_alumni', $id_alumni);
+        $data = [
+            'title'    => $alumni->namalengkap,
+            'add'      => 'admin/alumni/add',
+            'edit'      => 'admin/alumni/edit/',
+            'back'      => 'admin/alumni',
+            'delete'      => 'admin/alumni/delete/',
+            'is_active'      => 'admin/alumni/is_active/',
+            'alumni'      => $alumni,
+            'content'   => 'admin/alumni/detail'
+        ];
+
+        $this->load->view('admin/layout/wrapper', $data, FALSE);
+    }
+
 
 
     public function add()
@@ -90,7 +107,7 @@ class Alumni extends CI_Controller
             $data = [
                 'title'     => 'Edit data alumni ' . $alumni->namalengkap,
                 'edit'       => 'admin/alumni/edit/',
-                'back'       => 'admin/alumni/',
+                'back'       => 'admin/alumni/detail/' . $alumni->id_alumni,
                 'alumni'    => $alumni,
                 'content'   => 'admin/alumni/edit'
             ];
