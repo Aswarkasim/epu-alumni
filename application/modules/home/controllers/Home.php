@@ -16,9 +16,9 @@ class Home extends CI_Controller
     public function index()
     {
         $banner = $this->Crud_model->listing('tbl_banner');
-        $lowongan = $this->Crud_model->listing('tbl_lowongan');
-        $berita = $this->Crud_model->listing('tbl_berita');
-        $kategori = $this->Crud_model->listing('tbl_kategori');
+        $lowongan = $this->Crud_model->listing('tbl_lowongan', '3');
+        $berita = $this->Crud_model->listing('tbl_berita', '5');
+        $kategori = $this->Crud_model->listing('tbl_kategori', '5');
         $data = [
             'banner'    => $banner,
             'lowongan'    => $lowongan,

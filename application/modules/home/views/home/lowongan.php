@@ -10,7 +10,7 @@
             <p class="card-text"><?= character_limiter($row->deskripsi, '100') ?></p>
           </div>
           <div class="card-footer">
-            <a href="<?= base_url('home/lowongan/detail/' . $row->slug); ?>" class="btn btn-primary">Selengkapnya</a>
+            <a href="<?= base_url('home/lowongan/detail/' . $row->id_lowongan); ?>" class="btn btn-primary">Selengkapnya</a>
           </div>
         </div>
       </div>

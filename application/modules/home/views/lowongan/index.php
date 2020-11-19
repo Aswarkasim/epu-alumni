@@ -22,7 +22,7 @@
             <h4><strong><?= $row->nama_lowongan; ?></strong></h4>
             <p class="card-text"><?= character_limiter($row->deskripsi, '50') ?></p>
             <div class="d-flex justify-content-between align-items-center">
-              <a href="<?= base_url('home/lowongan/detail/' . $row->slug); ?>" class="btn btn-primary">Selengkapnya</a>
+              <a href="<?= base_url('home/lowongan/detail/' . $row->id_lowongan); ?>" class="btn btn-primary">Selengkapnya</a>
             </div>
           </div>
         </div>

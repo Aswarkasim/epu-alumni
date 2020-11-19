@@ -74,7 +74,7 @@ class Lowongan extends CI_Controller
 
           $i = $this->input;
 
-          $slug = random_string() . '-' . url_title($i->post('nama_lowongan', 'dash', true));
+          $slug = random_string() . url_title($i->post('nama_lowongan', 'dash', true));
           $data = [
             'id_lowongan'       => random_string(),
             'nama_lowongan'    => $i->post('nama_lowongan'),

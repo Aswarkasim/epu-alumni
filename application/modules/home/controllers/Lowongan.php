@@ -15,9 +15,9 @@ class Lowongan extends CI_Controller
     $this->load->view('home/layout/wrapper', $data, FALSE);
   }
 
-  function detail($slug)
+  function detail($id_lowongan)
   {
-    $lowongan = $this->Crud_model->listingOne('tbl_lowongan', 'slug', $slug);
+    $lowongan = $this->Crud_model->listingOne('tbl_lowongan', 'id_lowongan', $id_lowongan);
     $lowonganList = $this->Crud_model->listing('tbl_lowongan', '3');
     $berita = $this->Crud_model->listing('tbl_berita', '2');
     $data = [
