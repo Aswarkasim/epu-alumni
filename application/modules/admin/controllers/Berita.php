@@ -160,7 +160,7 @@ class Berita extends CI_Controller
         ];
         $this->Crud_model->edit('tbl_berita', 'id_berita', $id_berita, $data);
         $this->session->set_flashdata('msg', 'Berita diedit');
-        redirect('admin/berita/detail/' . $data['slug']);
+        redirect('admin/berita/detail/' . $data['id_berita']);
       }
     }
     $data = [
