@@ -2,6 +2,7 @@
 
 $id_user = $this->session->userdata('id_user');
 $role = $this->session->userdata('role');
+$saran = $this->Crud_model->listingOneAll('tbl_saran', 'is_read', '0');
 
 ?>
 
@@ -28,7 +29,7 @@ $role = $this->session->userdata('role');
                         ?>"><a href="<?php echo base_url('admin/saran')
                                         ?>"><i class="fa fa-ticket"></i> <span>Saran</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-blue">17</small>
+                        <small class="label pull-right bg-blue"><?= count($saran) ?></small>
                     </span>
                 </a></li>
 

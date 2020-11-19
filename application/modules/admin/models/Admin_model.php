@@ -39,7 +39,7 @@ class Admin_model extends CI_Model
     $this->db->select('tbl_saran.*,
                             tbl_alumni.namalengkap')
       ->from('tbl_saran')
-      ->join('tbl_alumni', 'tbl_alumni.id_alumni = tbl_alumni.id_alumni', 'LEFT')
+      ->join('tbl_alumni', 'tbl_alumni.id_alumni = tbl_saran.id_alumni', 'LEFT')
       ->where('id_saran', $id_saran);
     return $this->db->get()->row();
   }
