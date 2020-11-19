@@ -173,4 +173,15 @@ class Berita extends CI_Controller
     ];
     $this->load->view('admin/layout/wrapper', $data, FALSE);
   }
+
+  function delete($id_berita)
+  {
+    $d = $this->Crud_model->listingOne('tbl_berita', 'id_berita', $id_berita);
+    if ($d->gambar != '') {
+      unlink($d->gambar);
+    }
+    $this->Crud_model->delete('tbl_berita', 'id_berita', $id_berita);
+    $this->session->set_flashdata('msg', 'data telah dihapus');
+    redirect('admin/berita');
+  }
 }

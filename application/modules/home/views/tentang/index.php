@@ -31,7 +31,7 @@
         <div class="card-body">
           <?php foreach ($lowongan as $row) { ?>
             <div class="input-group">
-              <a href="<?= base_url('home/lowongan/detail/' . $row->slug); ?>">
+              <a href="<?= base_url('home/lowongan/detail/' . $row->id_lowongan); ?>">
                 <h5><strong><?= $row->nama_lowongan; ?></strong></h5>
               </a><br>
               <p><?= character_limiter($row->deskripsi, '50') ?></p>
