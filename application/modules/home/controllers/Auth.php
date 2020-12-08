@@ -72,10 +72,34 @@ class Auth extends CI_Controller
     $valid->set_rules('username_alumni', 'Username', 'required|is_unique[tbl_alumni.username_alumni]', array('required' => $required, 'is_unique' => '%s telah ada. silakan masukkan NIM yang lain'));
     $valid->set_rules('namalengkap', 'Nama Lengkap', 'required', array('required' => $required));
     $valid->set_rules('email', 'email', 'required|is_unique[tbl_alumni.email]|valid_email', array('required' => $required, 'is_unique' => $is_email, 'valid_email' => '%s yang anda  masukkan tidak valid'));
-    $valid->set_rules('angkatan', 'angkatan', 'required|is_unique[tbl_alumni.email]', array('required' => $required, 'is_unique' => $is_email, 'valid_email' => '%s yang anda  masukkan tidak valid'));
-    $valid->set_rules('password', 'Password', 'required', array('required' => $required, 'is_unique' => $is_email));
+    $valid->set_rules(
+      'angkatan',
+      'Angkatan',
+      'required|min_length[4]|max_length[4]',
+      array(
+        'required' => $required,
+        'min_length' => '%s minimal 4 karakter',
+        'max_length' => '%s maksimal 4 karakter'
+      )
+    );
+    $valid->set_rules(
+      'tahun_lulus',
+      'Tahun Lulus',
+      'required|min_length[4]|max_length[4]',
+      array(
+        'required' => $required,
+        'min_length' => '%s minimal 4 karakter',
+        'max_length' => '%s maksimal 4 karakter'
+      )
+    );
+    $valid->set_rules('password', 'Password', 'required|min_length[6]', array('required' => $required, 'min_length' => 'Password minimal 6 karakter', 'is_unique' => $is_email));
     $valid->set_rules('re_password', 'Konfirmasi Password', 'required|matches[password]', array('required' => $required, 'matches' => '%s password yang anda masukkan tidak sama'));
 
+    // $valid->set_rules(
+    //   'angkatan',
+    //   'Angkatan',
+    //   'callback_angakatanCheck'
+    // );
 
     if ($valid->run() === FALSE) {
       $data = [
@@ -92,7 +116,7 @@ class Auth extends CI_Controller
         'angkatan'       => $i->post('angkatan'),
         'tahun_lulus'       => $i->post('tahun_lulus'),
         'pekerjaan'       => $i->post('pekerjaan'),
-        'masa_tunggu'       => $i->post('masa_tunggu'),
+        'nohp'       => $i->post('nohp'),
         'gender'       => $i->post('gender'),
         'is_active'       => 1,
         'password'       => sha1($i->post('password')),
@@ -111,5 +135,24 @@ class Auth extends CI_Controller
     $s->unset_userdata('username_alumni');
     $s->unset_userdata('namalengkap');
     redirect(base_url('home/auth'), 'refresh');
+  }
+
+  function angakatanCheck($num)
+  {
+    if ($num > 2040) {
+      $this->form_validation->set_message(
+        'angkatan',
+        '%s tidak boleh lebih dari 2040'
+      );
+      return FALSE;
+    } else if ($num < 1996) {
+      $this->form_validation->set_message(
+        'angkatan',
+        '%s tidak boleh kurang dari 1996'
+      );
+      return FALSE;
+    } else {
+      return TRUE;
+    }
   }
 }

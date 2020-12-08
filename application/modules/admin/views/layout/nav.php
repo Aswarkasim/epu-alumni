@@ -88,6 +88,9 @@ $saran = $this->Crud_model->listingOneAll('tbl_saran', 'is_read', '0');
                     <li class="<?php if ($this->uri->segment(3) == "index") {
                                     echo "active";
                                 } ?>"><a href="<?= base_url('admin/berita/index') ?>">List Berita</a></li>
+                    <li class="<?php if ($this->uri->segment(2) == "kategori") {
+                                    echo "active";
+                                } ?>"><a href="<?= base_url('admin/kategori') ?>">Kategori</a></li>
                 </ul>
             </li>
 

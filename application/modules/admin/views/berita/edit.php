@@ -18,7 +18,7 @@
               echo $error;
               echo '</div>';
             }
-            echo form_open_multipart($edit) ?>
+            echo form_open_multipart($edit . $berita->id_berita) ?>
             <form action="" method="post">
               <input type="hidden" name="id_berita" value="<?= $berita->id_berita; ?>" id="">
 

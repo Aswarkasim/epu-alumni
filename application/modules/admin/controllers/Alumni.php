@@ -60,9 +60,39 @@ class Alumni extends CI_Controller
         $valid->set_rules('password', 'Password', 'required', array('required' => $required, 'is_unique' => $is_email));
         $valid->set_rules('re_password', 'Konfirmasi Password', 'required|matches[password]', array('required' => $required, 'matches' => '%s password yang anda masukkan tidak sama'));
 
+        $valid->set_rules(
+            'tahun_lulus',
+            'Tahun Lulus',
+            'required|min_length[4]|max_length[4]',
+            array(
+                'min_length' => '%s minimal 4 karakter',
+                'max_length' => '%s maksimal 4 karakter'
+            )
+        );
+        $valid->set_rules(
+            'tahun_wisuda',
+            'Tahun Wisuda',
+            'required|min_length[4]|max_length[4]',
+            array(
+                'min_length' => '%s minimal 4 karakter',
+                'max_length' => '%s maksimal 4 karakter'
+            )
+        );
+        $valid->set_rules(
+            'angkatan',
+            'Angkatan',
+            'required|min_length[4]|max_length[4]',
+            array(
+                'min_length' => '%s minimal 4 karakter',
+                'max_length' => '%s maksimal 4 karakter'
+            )
+        );
 
         if ($valid->run() === FALSE) {
             $data = [
+                'title'     => 'Tambah Alumni',
+                'add'      => 'admin/alumni/add',
+                'back'      => 'admin/alumni',
                 'content'   => 'admin/alumni/add'
             ];
             $this->load->view('layout/wrapper', $data, FALSE);
@@ -101,6 +131,34 @@ class Alumni extends CI_Controller
         $valid = $this->form_validation;
         // $valid->set_rules('username_alumni', 'Username', 'required|is_unique[tbl_alumni.username_alumni]', array('required' => $required, 'is_unique' => '%s telah ada. silakan masukkan NIM yang lain'));
         $valid->set_rules('namalengkap', 'Nama Lengkap', 'required', array('required' => $required));
+
+        $valid->set_rules(
+            'tahun_lulus',
+            'Tahun Lulus',
+            'required|min_length[4]|max_length[4]',
+            array(
+                'min_length' => '%s minimal 4 karakter',
+                'max_length' => '%s maksimal 4 karakter'
+            )
+        );
+        $valid->set_rules(
+            'tahun_wisuda',
+            'Tahun Wisuda',
+            'required|min_length[4]|max_length[4]',
+            array(
+                'min_length' => '%s minimal 4 karakter',
+                'max_length' => '%s maksimal 4 karakter'
+            )
+        );
+        $valid->set_rules(
+            'angkatan',
+            'Angkatan',
+            'required|min_length[4]|max_length[4]',
+            array(
+                'min_length' => '%s minimal 4 karakter',
+                'max_length' => '%s maksimal 4 karakter'
+            )
+        );
 
 
         if ($valid->run() === FALSE) {

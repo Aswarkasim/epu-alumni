@@ -26,8 +26,33 @@ class Kuliah extends CI_Controller
     // $valid->set_rules('id_alumni', 'NIM', 'required');
     $valid->set_rules('program_studi', 'Program Studi', 'required');
     $valid->set_rules('judul_skripsi', 'Judul Skripsi', 'required');
-    $valid->set_rules('tahun_lulus', 'Tahun Lulus', 'required');
-    $valid->set_rules('tahun_wisuda', 'Tahun Wisuda', 'required');
+    $valid->set_rules(
+      'tahun_lulus',
+      'Tahun Lulus',
+      'required|min_length[4]|max_length[4]',
+      array(
+        'min_length' => '%s minimal 4 karakter',
+        'max_length' => '%s maksimal 4 karakter'
+      )
+    );
+    $valid->set_rules(
+      'tahun_wisuda',
+      'Tahun Wisuda',
+      'required|min_length[4]|max_length[4]',
+      array(
+        'min_length' => '%s minimal 4 karakter',
+        'max_length' => '%s maksimal 4 karakter'
+      )
+    );
+    $valid->set_rules(
+      'angkatan',
+      'Angkatan',
+      'required|min_length[4]|max_length[4]',
+      array(
+        'min_length' => '%s minimal 4 karakter',
+        'max_length' => '%s maksimal 4 karakter'
+      )
+    );
     $valid->set_rules('ipk', 'ipk', 'required');
     $valid->set_rules('no_ijazah', 'no_ijazah', 'required');
     $valid->set_rules('kerelevansian', 'kerelevansian', 'required');
@@ -46,6 +71,7 @@ class Kuliah extends CI_Controller
         'judul_skripsi'           => $i->post('judul_skripsi'),
         'tahun_lulus'    => $i->post('tahun_lulus'),
         'tahun_wisuda'   => $i->post('tahun_wisuda'),
+        'angkatan'   => $i->post('angkatan'),
         'ipk'            => $i->post('ipk'),
         'no_ijazah'       => $i->post('no_ijazah'),
         'kerelevansian'     => $i->post('kerelevansian'),

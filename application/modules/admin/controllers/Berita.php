@@ -119,7 +119,7 @@ class Berita extends CI_Controller
         $this->upload->initialize($config);
         if (!$this->upload->do_upload('gambar')) {
           $data = [
-            'title'    => 'Tambah Berita',
+            'title'    => 'Edit Berita',
             'add'    => 'admin/berita/add',
             'edit'    => 'admin/berita/edit/',
             'back'    => 'admin/berita',
@@ -130,13 +130,16 @@ class Berita extends CI_Controller
           ];
           $this->load->view('admin/layout/wrapper', $data, FALSE);
         } else {
+          if ($berita->gambar != '') {
+            unlink($berita->gambar);
+          }
           $upload_data = ['uploads' => $this->upload->data()];
 
           $i = $this->input;
 
           $slug = random_string() . '-' . url_title($i->post('judul_berita', 'dash', true));
           $data = [
-            'id_berita'       => random_string(),
+            'id_berita'       => $id_berita,
             'id_kategori'     => $i->post('id_kategori'),
             'judul_berita'    => $i->post('judul_berita'),
             'slug'            => $slug,
@@ -145,14 +148,14 @@ class Berita extends CI_Controller
           ];
           $this->Crud_model->edit('tbl_berita', 'id_berita', $id_berita, $data);
           $this->session->set_flashdata('msg', 'Berita diedit');
-          redirect('admin/berita/detail/' . $data['id_berita']);
+          redirect('admin/berita/detail/' . $id_berita);
         }
       } else {
         $i = $this->input;
 
         $slug = random_string() . '-' . url_title($i->post('judul_berita', 'dash', true));
         $data = [
-          'id_berita'       => random_string(),
+          'id_berita'       => $id_berita,
           'id_kategori'     => $i->post('id_kategori'),
           'judul_berita'    => $i->post('judul_berita'),
           'slug'            => $slug,
@@ -160,11 +163,11 @@ class Berita extends CI_Controller
         ];
         $this->Crud_model->edit('tbl_berita', 'id_berita', $id_berita, $data);
         $this->session->set_flashdata('msg', 'Berita diedit');
-        redirect('admin/berita/detail/' . $data['id_berita']);
+        redirect('admin/berita/detail/' . $id_berita);
       }
     }
     $data = [
-      'title'    => 'Tambah Berita',
+      'title'    => 'Edit Berita',
       'edit'    => 'admin/berita/edit/',
       'back'    => 'admin/berita',
       'kategori'    => $kategori,

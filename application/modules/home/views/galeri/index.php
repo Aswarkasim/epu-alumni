@@ -35,7 +35,7 @@
             <img class="img-thumbnail" src="<?= base_url($row->gambar); ?>" alt="Another alt text">
           </a>
         </div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, perspiciatis!</div>
+        <div><?= $row->deskripsi; ?></div>
       </div>
     <?php } ?>
 

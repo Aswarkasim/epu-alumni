@@ -33,8 +33,11 @@ class Kategori extends CI_Controller
 
   function add()
   {
+
+    $this->load->helper('string');
+
     $valid = $this->form_validation;
-    $valid->set_rules('id_kategori', 'Kode Kaategori', 'macthes[tbl_kategori.id_kategori]', array('matches' => '%s telah ada. Silahkan masukkan kode yang lain'));
+    // $valid->set_rules('id_kategori', 'Kode Kaategori', 'macthes[tbl_kategori.id_kategori]', array('matches' => '%s telah ada. Silahkan masukkan kode yang lain'));
     $valid->set_rules('nama_kategori', 'Nama Kaategori', 'macthes[tbl_kategori.nama_kategori]', array('matches' => '%s telah ada. Silahkan masukkan kode yang lain'));
 
 
@@ -44,7 +47,7 @@ class Kategori extends CI_Controller
       $i = $this->input;
       $data = [
         'nama_kategori'   => $i->post('nama_kategori'),
-        'id_kategori'   => $i->post('id_kategori')
+        'id_kategori'   => random_string()
       ];
       $this->Crud_model->add('tbl_kategori', $data);
       $this->session->set_flashdata('msg', 'kategori berhasil ditambah');
@@ -64,7 +67,7 @@ class Kategori extends CI_Controller
       $i = $this->input;
       $data = [
         'nama_kategori'   => $i->post('nama_kategori'),
-        'id_kategori'   => $i->post('id_kategori')
+        'id_kategori'   => $id_kategori
       ];
       $this->Crud_model->edit('tbl_kategori', 'id_kategori', $id_kategori, $data);
       $this->session->set_flashdata('msg', 'kategori berhasil diedit');

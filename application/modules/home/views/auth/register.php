@@ -58,6 +58,17 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-4">
+                <label for="" class="pull-right"><strong>No. Hp</strong></label>
+              </div>
+              <div class="col-md-8">
+                <input class="form-control" name="nohp" placeholder="No. Hp" type="number " value="<?= set_value('nohp') ?>">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
                 <label for="" class="pull-right"><strong>Gender</strong></label>
               </div>
               <div class="col-md-8">
@@ -76,7 +87,7 @@
                 <label for="" class="pull-right"><strong>Angkatan</strong></label>
               </div>
               <div class="col-md-8">
-                <input class="form-control" name="angkatan" placeholder="Angkatan" type="text" value="<?= set_value('angkatan') ?>">
+                <input class="form-control" name="angkatan" placeholder="Angkatan" type="number" value="<?= set_value('angkatan') ?>">
               </div>
             </div>
           </div>
@@ -87,21 +98,11 @@
                 <label for="" class="pull-right"><strong>Tahun Lulus</strong></label>
               </div>
               <div class="col-md-8">
-                <input class="form-control" name="tahun_lulus" placeholder="Tahun Lulus" type="text" value="<?= set_value('tahun_lulus') ?>">
+                <input class="form-control" name="tahun_lulus" placeholder="Tahun Lulus" type="number" value="<?= set_value('tahun_lulus') ?>">
               </div>
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-4">
-                <label for="" class="pull-right"><strong>Masa Tunggu</strong></label>
-              </div>
-              <div class="col-md-8">
-                <input class="form-control" name="masa_tunggu" placeholder="Masa Tunggu" type="text" value="<?= set_value('masa_tunggu') ?>">
-              </div>
-            </div>
-          </div>
 
           <div class="form-group">
             <div class="row">
@@ -114,16 +115,6 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-4">
-                <label for="" class="pull-right"><strong>Pekerjaan Pertama</strong></label>
-              </div>
-              <div class="col-md-8">
-                <input class="form-control" name="pekerjaan_pertama" placeholder="Pekerjaan Pertama" type="text" value="<?= set_value('pekerjaan_pertama') ?>">
-              </div>
-            </div>
-          </div>
 
 
 

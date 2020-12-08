@@ -21,8 +21,19 @@
             <label for="" class="pull-right">NIM</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" disabled value="<?= $alumni->id_alumni; ?>" name="id_alumni" id="">
+            <input type="number" class="form-control" disabled value="<?= $alumni->id_alumni; ?>" name="id_alumni" id="">
             <small>* Hubungi admin untuk mengubah NIM</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
+            <label for="" class="pull-right">Angkatan</label>
+          </div>
+          <div class="col-md-6">
+            <input type="number" class="form-control" name="angkatan" value="<?= $alumni->angkatan; ?>" id="">
           </div>
         </div>
       </div>
@@ -57,7 +68,7 @@
             <label for="" class="pull-right">Tahun Lulus</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" value="<?= $alumni->tahun_lulus; ?>" name="tahun_lulus" id="">
+            <input type="number" class="form-control" value="<?= $alumni->tahun_lulus; ?>" name="tahun_lulus" id="">
           </div>
         </div>
       </div>
@@ -68,7 +79,7 @@
             <label for="" class="pull-right">Tahun Wisuda</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" value="<?= $alumni->tahun_wisuda; ?>" name="tahun_wisuda" id="">
+            <input type="number" class="form-control" value="<?= $alumni->tahun_wisuda; ?>" name="tahun_wisuda" id="">
           </div>
         </div>
       </div>
@@ -79,7 +90,7 @@
             <label for="" class="pull-right">IPK</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" name="ipk" value="<?= $alumni->ipk; ?>" id="">
+            <input type="number" class="form-control" name="ipk" value="<?= $alumni->ipk; ?>" id="">
           </div>
         </div>
       </div>

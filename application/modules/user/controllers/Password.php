@@ -23,7 +23,7 @@ class Password extends CI_Controller
     $valid = $this->form_validation;
 
     $valid->set_rules('password_lama', 'Password Lama', 'required');
-    $valid->set_rules('password', 'Password', 'required');
+    $valid->set_rules('password', 'Password', 'required|min_length[6]', ['min_length' => 'Password minimal 6 karakter']);
     $valid->set_rules('re_password', 'Password', 'required|matches[password]');
 
     if ($valid->run() === FALSE) {

@@ -11,7 +11,7 @@
                 <h4 class="modal-title">Tambah Kategori</h4>
             </div>
             <div class="modal-body">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
                             <label for="" class="pull-right">Kode Kategori</label>
@@ -20,7 +20,7 @@
                             <input type="text" class="form-control" name="id_kategori" required>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-3">
