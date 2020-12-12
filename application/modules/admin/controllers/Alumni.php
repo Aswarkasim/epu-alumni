@@ -135,28 +135,34 @@ class Alumni extends CI_Controller
         $valid->set_rules(
             'tahun_lulus',
             'Tahun Lulus',
-            'required|min_length[4]|max_length[4]',
+            'required|numeric|less_than[2070]|greater_than[1990]|min_length[4]|max_length[4]',
             array(
                 'min_length' => '%s minimal 4 karakter',
-                'max_length' => '%s maksimal 4 karakter'
+                'max_length' => '%s maksimal 4 karakter',
+                'less_than'  => '%s harus kurang dari 2070',
+                'greater_than'  => '%s harus lebih dari 1990',
             )
         );
         $valid->set_rules(
             'tahun_wisuda',
             'Tahun Wisuda',
-            'required|min_length[4]|max_length[4]',
+            'required|numeric|less_than[2070]|greater_than[1990]|min_length[4]|max_length[4]',
             array(
                 'min_length' => '%s minimal 4 karakter',
-                'max_length' => '%s maksimal 4 karakter'
+                'max_length' => '%s maksimal 4 karakter',
+                'less_than'  => '%s harus kurang dari 2070',
+                'greater_than'  => '%s harus lebih dari 1990',
             )
         );
         $valid->set_rules(
             'angkatan',
             'Angkatan',
-            'required|min_length[4]|max_length[4]',
+            'required|numeric|less_than[2070]|greater_than[1990]|min_length[4]|max_length[4]',
             array(
                 'min_length' => '%s minimal 4 karakter',
-                'max_length' => '%s maksimal 4 karakter'
+                'max_length' => '%s maksimal 4 karakter',
+                'less_than'  => '%s harus kurang dari 2070',
+                'greater_than'  => '%s harus lebih dari 1990',
             )
         );
 

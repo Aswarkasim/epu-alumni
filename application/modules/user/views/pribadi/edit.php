@@ -73,7 +73,7 @@
             <label for="" class="pull-right">Handphone</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" value="<?= $alumni->nohp; ?>" name="nohp" id="">
+            <input type="number" class="form-control" value="<?= $alumni->nohp; ?>" name="nohp" id="">
           </div>
         </div>
       </div>

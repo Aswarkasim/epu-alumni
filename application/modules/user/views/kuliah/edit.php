@@ -46,7 +46,13 @@
             <label for="" class="pull-right">Program Studi</label>
           </div>
           <div class="col-md-6">
-            <input type="text" class="form-control" name="program_studi" value="<?= $alumni->program_studi; ?>" id="">
+            <!-- <input type="text" class="form-control" name="program_studi" value="<?= $alumni->program_studi; ?>" id=""> -->
+            <select name="program_studi" id="" class="form-control">
+              <option value="">--- Progam Studi ---</option>
+              <option value="Pend. Teknik Elektro S1" <?= $alumni->program_studi == 'Pend. Teknik Elektro S1' ? 'selected' : ''; ?>>Pend. Teknik Elektro S1</option>
+              <option value="Pend. Teknik Elektro D3" <?= $alumni->program_studi == 'Pend. Teknik Elektro D3' ? 'selected' : ''; ?>>Pend. Teknik Elektro D3</option>
+              <option value="Pend. Teknik Informatika dan Komputer S1" <?= $alumni->program_studi == 'Pend. Teknik Informatika dan Komputer S1' ? 'selected' : ''; ?>>Pend. Teknik Informatika dan Komputer S1</option>
+            </select>
           </div>
         </div>
       </div>

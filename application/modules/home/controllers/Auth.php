@@ -75,21 +75,23 @@ class Auth extends CI_Controller
     $valid->set_rules(
       'angkatan',
       'Angkatan',
-      'required|min_length[4]|max_length[4]',
+      'required|numeric|less_than[2070]|greater_than[1990]|min_length[4]|max_length[4]',
       array(
-        'required' => $required,
         'min_length' => '%s minimal 4 karakter',
-        'max_length' => '%s maksimal 4 karakter'
+        'max_length' => '%s maksimal 4 karakter',
+        'less_than'  => '%s harus kurang dari 2070',
+        'greater_than'  => '%s harus lebih dari 1990',
       )
     );
     $valid->set_rules(
       'tahun_lulus',
       'Tahun Lulus',
-      'required|min_length[4]|max_length[4]',
+      'required|numeric|less_than[2070]|greater_than[1990]|min_length[4]|max_length[4]',
       array(
-        'required' => $required,
         'min_length' => '%s minimal 4 karakter',
-        'max_length' => '%s maksimal 4 karakter'
+        'max_length' => '%s maksimal 4 karakter',
+        'less_than'  => '%s harus kurang dari 2070',
+        'greater_than'  => '%s harus lebih dari 1990',
       )
     );
     $valid->set_rules('password', 'Password', 'required|min_length[6]', array('required' => $required, 'min_length' => 'Password minimal 6 karakter', 'is_unique' => $is_email));
