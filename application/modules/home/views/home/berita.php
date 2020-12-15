@@ -11,7 +11,7 @@
             <img src="<?= base_url($row->gambar); ?>" width="100px" class="mr-3" alt="...">
             <div class="media-body">
               <h5 class="mt-0 mb-1"><a href="<?= base_url('home/berita/detail/' . $row->slug); ?>"><strong><?= $row->judul_berita; ?></strong></a></h5>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              <?= character_limiter($row->isi, '100'); ?>
             </div>
           </li>
           <hr>
