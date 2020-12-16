@@ -36,6 +36,13 @@ class Dashboard extends CI_Controller
 
         $this->load->view('admin/layout/wrapper', $data, FALSE);
     }
+
+    function panduan()
+    {
+
+        $this->load->helper('download');
+        force_download('assets/panduan/panduan_admin.pdf', null);
+    }
 }
 
 /* End of file Dashboard.php */

@@ -57,4 +57,11 @@ class Home extends CI_Controller
         ];
         $this->load->view('home/layout/wrapper', $data, FALSE);
     }
+
+    function panduan()
+    {
+
+        $this->load->helper('download');
+        force_download('assets/panduan/panduan_user.pdf', null);
+    }
 }

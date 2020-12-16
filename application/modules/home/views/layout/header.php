@@ -34,6 +34,9 @@
                                 echo "saran";
                               } ?>"><a class=" nav-link" href="<?= base_url('home/saran'); ?>">Kontak dan Saran</a></li>
 
+         <li class="nav-item <?php if ($this->uri->segment('2') == 'panduan') {
+                                echo "panduan";
+                              } ?>"><a class=" nav-link" href="<?= base_url('home/home/panduan'); ?>">Panduan</a></li>
        </ul>
        <form class="form-inline my-2 my-lg-0">
 

@@ -9,7 +9,7 @@
         <div class="alert alert-success">
             <p>
                 <i class="fa fa-user"></i>
-                Selamat datang di halaman admin <?= $user->nama_user ?> diaplikasi sistem alumni
+                Selamat datang di halaman admin <?= $user->nama_user ?> diaplikasi sistem alumni. Download panduan penggunaan <a href="<?= base_url('admin/dashboard/panduan') ?>">di sini <i class="fa fa-download"></i></a>
             </p>
         </div>
     </div>
