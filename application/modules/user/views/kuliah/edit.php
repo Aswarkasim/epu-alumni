@@ -96,7 +96,7 @@
             <label for="" class="pull-right">IPK</label>
           </div>
           <div class="col-md-6">
-            <input type="number" class="form-control" name="ipk" value="<?= $alumni->ipk; ?>" id="">
+            <input type="text" class="form-control" name="ipk" value="<?= $alumni->ipk; ?>" id="">
           </div>
         </div>
       </div>
