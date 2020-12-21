@@ -29,3 +29,24 @@ $('.tombol-hapus').on('click', function (e) {
         }
     })
 })
+
+
+// Tommbol logout
+$('.tombol-logout').on('click', function (e) {
+    // Mematikan href
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal({
+        title: 'Apakah anda yakin ingin logout?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Logout!'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    })
+})

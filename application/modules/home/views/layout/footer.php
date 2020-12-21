@@ -4,7 +4,7 @@
     <span class="text-muted"><a href="<?= base_url('admin/auth'); ?>">admin log</a> Sistem Informasi Alumni JPTE</span>
     <span class="pull-right">
       <?php if ($this->session->userdata('id_alumni')) { ?>
-        <a href="<?= base_url('home/auth/logout'); ?>" class="btn btn-secondary"><i class="fa fa-sign-out"></i> Logout</a>
+        <a href="<?= base_url('home/auth/logout'); ?>" class="btn btn-secondary tombol-logout"><i class="fa fa-sign-out"></i> Logout</a>
       <?php } ?>
     </span>
   </div>
