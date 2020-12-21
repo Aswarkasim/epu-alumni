@@ -7,7 +7,7 @@
       <div class="col-md-12">
         <br>
         <a href="<?= base_url('user/lowongan/add'); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Lowongan</a>
-        <br>
+        <br><br>
 
         <div class="row">
 
@@ -26,7 +26,7 @@
                   <h4><strong><?= $row->nama_lowongan; ?></strong></h4>
                   <p class="card-text"><?= character_limiter($row->deskripsi, '10') ?></p>
                   <div class="d-flex justify-content-between align-items-center">
-                    <a href="<?= base_url('home/lowongan/detail/' . $row->slug); ?>" class="btn btn-primary">Selengkapnya</a>
+                    <a href="<?= base_url('home/lowongan/detail/' . $row->id_lowongan); ?>" class="btn btn-primary">Selengkapnya</a>
 
                   </div>
 
