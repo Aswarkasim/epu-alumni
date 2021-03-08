@@ -87,7 +87,12 @@
                 <label for="" class="pull-right"><strong>Angkatan</strong></label>
               </div>
               <div class="col-md-8">
-                <input class="form-control" name="angkatan" placeholder="Angkatan" type="number" value="<?= set_value('angkatan') ?>">
+                <select name="angkatan" required class="form-control" id="">
+                  <option value="">--Angkatan--</option>
+                  <?php for ($i = 2000; $i <= $yearNow; $i++) {  ?>
+                    <option value="<?= $i; ?>"><?= $i; ?></option>
+                  <?php } ?>
+                </select>
               </div>
             </div>
           </div>

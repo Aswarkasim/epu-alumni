@@ -102,9 +102,12 @@ class Auth extends CI_Controller
     //   'Angkatan',
     //   'callback_angakatanCheck'
     // );
+    $current = date('Y-m-d');
+    $yearNow = date("Y", strtotime($current));
 
     if ($valid->run() === FALSE) {
       $data = [
+        'yearNow'   => $yearNow,
         'content'   => 'home/auth/register'
       ];
       $this->load->view('layout/wrapper', $data, FALSE);
