@@ -89,7 +89,7 @@
               <div class="col-md-8">
                 <select name="angkatan" required class="form-control" id="">
                   <option value="">--Angkatan--</option>
-                  <?php for ($i = 2000; $i <= $yearNow; $i++) {  ?>
+                  <?php for ($i = 1980; $i <= $yearNow; $i++) {  ?>
                     <option value="<?= $i; ?>"><?= $i; ?></option>
                   <?php } ?>
                 </select>
@@ -103,7 +103,12 @@
                 <label for="" class="pull-right"><strong>Tahun Lulus</strong></label>
               </div>
               <div class="col-md-8">
-                <input class="form-control" name="tahun_lulus" placeholder="Tahun Lulus" type="number" value="<?= set_value('tahun_lulus') ?>">
+                <select name="tahun_lulus" required class="form-control" id="">
+                  <option value="">--Tahun Lulus--</option>
+                  <?php for ($i = 1980; $i <= $yearNow; $i++) {  ?>
+                    <option value="<?= $i; ?>"><?= $i; ?></option>
+                  <?php } ?>
+                </select>
               </div>
             </div>
           </div>
