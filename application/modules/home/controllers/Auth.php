@@ -75,7 +75,7 @@ class Auth extends CI_Controller
     $valid->set_rules(
       'angkatan',
       'Angkatan',
-      'required|numeric|less_than[2070]|greater_than[1990]|min_length[4]|max_length[4]',
+      'required|numeric|less_than[2070]|greater_than[1979]|min_length[4]|max_length[4]',
       array(
         'min_length' => '%s minimal 4 karakter',
         'max_length' => '%s maksimal 4 karakter',
@@ -86,7 +86,7 @@ class Auth extends CI_Controller
     $valid->set_rules(
       'tahun_lulus',
       'Tahun Lulus',
-      'required|numeric|less_than[2070]|greater_than[1990]|min_length[4]|max_length[4]',
+      'required|numeric|less_than[2070]|greater_than[1979]|min_length[4]|max_length[4]',
       array(
         'min_length' => '%s minimal 4 karakter',
         'max_length' => '%s maksimal 4 karakter',
