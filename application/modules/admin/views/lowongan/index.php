@@ -15,6 +15,7 @@
         <tr>
           <th width="40px">No</th>
           <th>Judul Lowongan</th>
+          <th>Status</th>
           <th width="200px">Tindakan</th>
         </tr>
       </thead>
@@ -24,6 +25,11 @@
           <tr>
             <td><?= $no++; ?></td>
             <td><a href="<?= base_url('admin/lowongan/detail/' . $row->id_lowongan) ?>"><strong><?= $row->nama_lowongan; ?></strong></a></td>
+            <td><?php if ($row->is_active == 1) {
+                  echo '<div class="label label-success">Aktif</div>';
+                } else {
+                  echo '<div class="label label-danger">Tidak Aktif</div>';
+                } ?></td>
             <td>
               <a class="btn btn-success" href="<?= base_url('admin/lowongan/edit/' . $row->id_lowongan) ?>"><i class="fa fa-edit"></i> Edit</a>
               <a class="btn btn-danger tombol-hapus" href="<?= base_url('admin/lowongan/delete/' . $row->id_lowongan) ?>"><i class="fa fa-trash"></i> Hapus</a>

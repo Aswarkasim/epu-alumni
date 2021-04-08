@@ -186,4 +186,21 @@ class Lowongan extends CI_Controller
     $this->session->set_flashdata('msg', 'data telah dihapus');
     redirect('admin/lowongan');
   }
+
+  function activePost($id_lowongan)
+  {
+    $lowongan = $this->Crud_model->listingOne('tbl_lowongan', 'id_lowongan', $id_lowongan);
+    $status = '';
+    if ($lowongan->is_active == 0) {
+      $status = 1;
+    } else {
+      $status = 0;
+    }
+    $data = [
+      'is_active' => $status
+    ];
+    $this->Crud_model->edit('tbl_lowongan', 'id_lowongan', $id_lowongan, $data);
+    $this->session->set_flashdata('msg', 'Selesai');
+    redirect('admin/lowongan/detail/' . $id_lowongan, 'refresh');
+  }
 }

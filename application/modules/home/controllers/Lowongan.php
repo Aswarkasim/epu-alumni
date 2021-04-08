@@ -5,14 +5,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Lowongan extends CI_Controller
 {
 
+
   public function index()
   {
-    $lowongan = $this->Crud_model->listing('tbl_lowongan');
+
+    $this->load->model('user/User_model', 'UM');
+
+    $this->load->library('pagination');
+
+    $config['base_url']     = base_url('home/lowongan/index/');
+    $config['total_rows']   = count($this->Crud_model->listingOneAll('tbl_lowongan', 'is_active', '1'));
+    $config['per_page']     = 12;
+
+    $from = $this->uri->segment(4);
+    $this->pagination->initialize($config);
+    $lowongan = $this->UM->listLowongan($config['per_page'], $from);
+
     $data = [
-      'lowongan' => $lowongan,
-      'content'  => 'home/lowongan/index'
+      'lowongan'    => $lowongan,
+      'pagination'    => $this->pagination->create_links(),
+      'content' => 'home/lowongan/index'
     ];
-    $this->load->view('home/layout/wrapper', $data, FALSE);
+    $this->load->view('layout/wrapper', $data, FALSE);
   }
 
   function detail($id_lowongan)
@@ -29,5 +43,3 @@ class Lowongan extends CI_Controller
     $this->load->view('home/layout/wrapper', $data, FALSE);
   }
 }
-
-/* End of file Controllername.php */

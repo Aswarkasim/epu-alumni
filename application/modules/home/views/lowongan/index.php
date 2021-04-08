@@ -30,4 +30,10 @@
     <?php } ?>
 
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <?= $pagination; ?>
+    </div>
+  </div>
 </div>

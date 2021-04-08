@@ -103,6 +103,23 @@
       <div class="form-group">
         <div class="row">
           <div class="col-md-2">
+            <label for="" class="pull-right">Kategori Pekerjaan</label>
+          </div>
+          <div class="col-md-6">
+            <select name="id_kategori_pekerjaan" class="form-control" id="">
+              <option value="">-- Kategori Pekerjaan --</option>
+              <?php foreach ($kategori_pekerjaan as $row) { ?>
+                <option value="<?= $row->id_kategori_pekerjaan; ?>" <?= $row->id_kategori_pekerjaan == $alumni->id_kategori_pekerjaan ? 'selected' : '' ?>><?= $row->nama_kategori_pekerjaan; ?></option>
+              <?php } ?>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
             <label for="" class="pull-right">Penghasilan</label>
           </div>
           <div class="col-md-6">

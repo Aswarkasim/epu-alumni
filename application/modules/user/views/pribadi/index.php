@@ -42,6 +42,11 @@
         </tr>
 
         <tr>
+          <td align="left">Kategori Pekerjaan</td>
+          <td>: <?= $alumni->nama_kategori_pekerjaan; ?></td>
+        </tr>
+
+        <tr>
           <td align="left">Penghasilan</td>
           <td>: Rp. <?= nominal($alumni->penghasilan) ?></td>
         </tr>

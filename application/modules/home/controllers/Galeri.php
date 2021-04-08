@@ -7,12 +7,25 @@ class Galeri extends CI_Controller
 
   public function index()
   {
-    $galeri = $this->Crud_model->listing('tbl_galeri');
+
+    $this->load->model('user/User_model', 'UM');
+
+    $this->load->library('pagination');
+
+    $config['base_url']     = base_url('home/galeri/index/');
+    $config['total_rows']   = count($this->Crud_model->listing('tbl_galeri'));
+    $config['per_page']     = 12;
+
+    $from = $this->uri->segment(4);
+    $this->pagination->initialize($config);
+    $galeri = $this->UM->listGaleri($config['per_page'], $from);
+
     $data = [
-      'galeri'  => $galeri,
-      'content'  => 'home/galeri/index'
+      'galeri'    => $galeri,
+      'pagination'    => $this->pagination->create_links(),
+      'content' => 'home/galeri/index'
     ];
-    $this->load->view('home/layout/wrapper', $data, FALSE);
+    $this->load->view('layout/wrapper', $data, FALSE);
   }
 }
 

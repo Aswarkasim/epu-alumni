@@ -7,16 +7,29 @@ class Berita extends CI_Controller
 
   public function index()
   {
-    $berita = $this->Crud_model->listing('tbl_berita');
+
+    $this->load->model('user/User_model', 'UM');
+
+    $this->load->library('pagination');
+
+    $config['base_url']     = base_url('home/berita/index/');
+    $config['total_rows']   = count($this->Crud_model->listing('tbl_berita'));
+    $config['per_page']     = 5;
+
+    $from = $this->uri->segment(4);
+    $this->pagination->initialize($config);
+    $berita = $this->UM->listBerita($config['per_page'], $from);
     $kategori = $this->Crud_model->listing('tbl_kategori');
 
     $data = [
-      'berita'  => $berita,
+      'berita'    => $berita,
       'kategori'  => $kategori,
-      'content'  => 'home/berita/index'
+      'pagination'    => $this->pagination->create_links(),
+      'content' => 'home/berita/index'
     ];
-    $this->load->view('home/layout/wrapper', $data, FALSE);
+    $this->load->view('layout/wrapper', $data, FALSE);
   }
+
 
   function detail($slug)
   {

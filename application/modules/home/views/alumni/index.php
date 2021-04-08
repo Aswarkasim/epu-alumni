@@ -14,7 +14,7 @@
                               echo base_url('assets/uploads/avatar-default.png');
                             } else {
                               echo
-                                base_url($row->gambar);
+                              base_url($row->gambar);
                             } ?>" width="100%" alt="">
                 </div>
                 <div class="col-md-9">
@@ -33,4 +33,11 @@
     } ?>
 
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <?= $pagination; ?>
+    </div>
+  </div>
+
 </div>

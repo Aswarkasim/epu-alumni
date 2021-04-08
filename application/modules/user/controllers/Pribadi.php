@@ -7,8 +7,11 @@ class Pribadi extends CI_Controller
 
   public function index()
   {
+
+    $this->load->model('user/User_model', 'UM');
     $id_alumni = $this->session->userdata('id_alumni');
-    $alumni = $this->Crud_model->listingOne('tbl_alumni', 'id_alumni', $id_alumni);
+    $alumni = $this->UM->dataPribadi($id_alumni);
+
     $data = [
       'alumni'   => $alumni,
       'content'  => 'user/pribadi/index'
@@ -22,6 +25,7 @@ class Pribadi extends CI_Controller
   {
     $id_alumni = $this->session->userdata('id_alumni');
     $alumni = $this->Crud_model->listingOne('tbl_alumni', 'id_alumni', $id_alumni);
+    $kategori_pekerjaan = $this->Crud_model->listing('tbl_kategori_pekerjaan');
 
     $valid = $this->form_validation;
 
@@ -34,6 +38,7 @@ class Pribadi extends CI_Controller
     if ($valid->run() === FALSE) {
       $data = [
         'alumni' => $alumni,
+        'kategori_pekerjaan'   => $kategori_pekerjaan,
         'content'   => 'user/pribadi/edit'
       ];
       $this->load->view('home/layout/wrapper', $data, FALSE);
@@ -47,6 +52,7 @@ class Pribadi extends CI_Controller
         'tanggal_lahir'         => $i->post('tanggal_lahir'),
         'nohp'         => $i->post('nohp'),
         'pekerjaan'         => $i->post('pekerjaan'),
+        'id_kategori_pekerjaan'         => $i->post('id_kategori_pekerjaan'),
         'penghasilan'         => $i->post('penghasilan'),
       ];
       $this->Crud_model->edit('tbl_alumni', 'id_alumni', $id_alumni, $data);

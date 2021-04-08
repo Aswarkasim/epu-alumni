@@ -65,6 +65,13 @@ $saran = $this->Crud_model->listingOneAll('tbl_saran', 'is_read', '0');
                         ?>"><a href="<?php echo base_url('admin/lowongan')
                                         ?>"><i class="fa fa-cubes"></i> <span>Lowongan Kerja</span></a></li>
 
+            <li class="<?php if ($this->uri->segment(2) == "kategori_pekerjaan") {
+                            echo "active";
+                        }
+                        ?>"><a href="<?php echo base_url('admin/kategori_pekerjaan')
+                                        ?>"><i class="fa fa-tag"></i> <span>Kategori Pekerjaan</span></a></li>
+
+
             <li class="<?php if ($this->uri->segment(2) == "galeri") {
                             echo "active";
                         }
